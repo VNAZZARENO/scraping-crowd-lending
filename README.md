@@ -1,8 +1,10 @@
-# NLP-Powered Project Analysis
+# Quantitative and NLP Crowd Lending Analysis
 
 ## Project Overview
 
-This project leverages **Natural Language Processing (NLP)** techniques to extract key insights from text data, specifically targeting project descriptions and overviews in the context of business or investment analysis. By combining powerful machine learning models from Hugging Face, this tool automates the process of text translation, sentiment analysis, and question-based feature extraction to assist in evaluating the potential success and risks of various projects.
+This project leverages **Natural Language Processing (NLP)** techniques to extract key insights from text data, specifically targeting project descriptions and overviews in the context of business or investment analysis. By combining machine learning models from Hugging Face, this tool automates the process of text translation, sentiment analysis, and question-based feature extraction to assist in evaluating the potential success and risks of various projects.
+
+Scraping is done using the library Selenium on a Firefox browser, regex is used to extract data that follows a clear structure, and NLP is for unformated text data. Finally, topics are generated using TfidfVectorizer from sklearn.feature_extraction.text.
 
 ## Key Features
 
