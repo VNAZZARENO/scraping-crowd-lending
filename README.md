@@ -47,19 +47,32 @@ To run this project, follow these steps:
 
 ## Usage
 
-1. **Prepare your data:** Ensure that your project data is in a CSV file format with relevant columns such as `A propos` or `Project Description`. This is where the text-based analysis will be performed.
+After setting up your environment and modifying the email adress and password variables you are ready to follow these steps.
 
-2. **Run the NLP pipeline:**
-   After setting up your environment and placing your data in the proper format, you can run the main analysis pipeline with the following command:
+1. **Prepare your data:** Ensure that your project data is in a CSV file format with relevant columns such as `A propos` or `Project Description`. This is where the text-based analysis will be performed. To do so, run:
+   ```bash
+   python main.py
+
+2. **Create de main dataframe**
+  You should have a folder with 1 text file of each urls scraped from `main.py`, to create the main dataframe run: 
+   ```bash
+   python perform_analysis.py
+
+This will process the text files with regex, translate the open text fields, perform sentiment analysis, and output `project_data_class_eng.csv`. 
+
+3. **Run the NLP pipeline:**
+  After checking that `project_data_class_eng.csv` is indeed generated, you can perform the NLP analysis by running:
 
    ```bash
    python question_from_analysis.py
 
-This will process the dataset, performing translation, sentiment analysis, and generating answers to predefined questions about each project.
-
-    Outputs: The pipeline will add new columns to your dataset, including:
+   Outputs: The pipeline will add new columns to your dataset, including:
         Translated text for non-English columns
         Sentiment analysis scores
+
+This will take for input the `project_data_class_eng.csv`, and generate answers to predefined questions about each project. The list
+
+    Outputs: The pipeline will add new columns to your dataset, including:
         Answers to key questions about the project
 
     Access Results: The results will be saved to a new CSV file named project_data_with_responses.csv.
@@ -68,14 +81,12 @@ This will process the dataset, performing translation, sentiment analysis, and g
 
 Here are some of the example questions the project attempts to answer for each project:
 
-    What is the target market for this project?
-    What are the key milestones for this project?
-    What is the revenue model for this project?
-    What are the growth projections for this project?
-    What is the project's unique selling point?
-    What potential risks might hinder the success of this project?
-    What are the key strengths of this project?
-    How scalable is the project in the current market?
+    What is the core objective or mission of this project?
+    What resources (financial, human, or technological) are required for the successful execution of this project?
+    What market demand or customer need does this project address?
+    What risks or challenges could affect the successful completion of this project?
+    What is the expected timeline or schedule for the completion of this project?
+    What are the key benefits or financial outcomes expected from this project?
 
 These questions help analyze key components and insights related to the project's success.
 
@@ -84,6 +95,7 @@ These questions help analyze key components and insights related to the project'
 The project uses the following models from Hugging Face:
 
     Sentiment Analysis Model: nlptown/bert-base-multilingual-uncased-sentiment
+    Text Classification Model: mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis
     Text Translation Model: Helsinki-NLP/opus-mt-fr-en
-    Text Generation Model: facebook/bart-large-cnn
+    Text Question-Answering Model: deepset/roberta-base-squad2
 
