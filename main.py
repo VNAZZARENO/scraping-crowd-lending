@@ -16,7 +16,7 @@ def main():
     options = Options()
     options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'  
 
-    download_dir = r"C:\Users\vince\OneDrive\Bureau\Programmation\Python\Market Making Crowd Lending\fici_pdf"  
+    download_dir = r"\fici_pdf"  
     os.makedirs(download_dir, exist_ok=True)  
 
     options.set_preference("browser.download.folderList", 2) 
@@ -33,10 +33,10 @@ def main():
     time.sleep(1)
 
     email_input = driver.find_element(By.ID, "user")
-    email_input.send_keys("juiced.bellow0l@icloud.com")  # Replace with your actual email
+    email_input.send_keys("your_email_adress")  # Replace with your actual email
 
     password_input = driver.find_element(By.ID, "mdp")
-    password_input.send_keys("nYpzo1-jyjdif-pimtyg")  # Replace with your actual password
+    password_input.send_keys("your_password")  # Replace with your actual password
 
     login_button = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')  # Adjust if necessary
     login_button.click()
